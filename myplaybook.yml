@@ -1,0 +1,11 @@
+---
+- name: update something
+  hosts: localhost
+
+  tasks:
+  - name: ensure my beatiful code works
+    command: "echo my code works"
+    register: code
+  
+  ### ToDo: more code
+      

@@ -1,0 +1,19 @@
+---
+- name: update something
+  hosts: all
+
+  roles:
+    - credentials
+
+  tasks:
+  - name: failing
+    fail: msg="please check login"
+    when: loginstatus.stdout != "login success"
+
+  - block:
+      - name: backup myapp
+        copy:
+          src: /opt/app/myapp
+          dest: /opt/app/myapp.bak
+
+  ### ToDo: more code
